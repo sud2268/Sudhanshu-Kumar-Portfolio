@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sudhanshu — DevOps & Cloud Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Sudhanshu, a DevOps and Cloud Engineer. Cloud infrastructure, automation, delivery pipelines, and operational work."
+    />
+    <meta name="author" content="Sudhanshu" />
+    <meta name="theme-color" content="#0c1218" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sudhanshu — DevOps & Cloud Engineer" />
+    <meta
+      property="og:description"
+      content="Portfolio of Sudhanshu, a DevOps and Cloud Engineer. Cloud infrastructure, automation, delivery pipelines, and operational work."
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Sudhanshu — DevOps & Cloud Engineer" />
+    <meta
+      name="twitter:description"
+      content="Portfolio of Sudhanshu, a DevOps and Cloud Engineer. Cloud infrastructure, automation, delivery pipelines, and operational work."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      ;(function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          var theme =
+            stored === 'light' || stored === 'dark'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark'
+          var root = document.documentElement
+          root.classList.toggle('dark', theme === 'dark')
+          root.style.colorScheme = theme
+          var meta = document.querySelector('meta[name="theme-color"]')
+          if (meta) meta.setAttribute('content', theme === 'dark' ? '#0c1218' : '#f3f0e8')
+        } catch (e) {}
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

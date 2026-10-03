@@ -1,0 +1,1 @@
+Keep imported images and other static assets that components import from source in this folder. Public files that should keep a stable URL belong in `public/`.
