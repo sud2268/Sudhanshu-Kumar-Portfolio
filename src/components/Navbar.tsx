@@ -32,14 +32,14 @@ export function Navbar() {
           <span className="font-display text-xl tracking-tight">{profile.name}</span>
         </a>
 
-        <nav aria-label="Primary" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
+        <nav aria-label="Primary" className="hidden xl:block">
+          <ul className="flex items-center gap-0.5">
             {navigation.map((item) => (
               <li key={item.id}>
                 <a
                   href={`#${item.id}`}
                   aria-current={active === item.id ? 'true' : undefined}
-                  className={`rounded-full px-3 py-2 text-sm transition-colors ${
+                  className={`rounded-full px-2 py-2 text-[0.8125rem] transition-colors ${
                     active === item.id ? 'text-brass' : 'text-muted hover:text-ink'
                   }`}
                 >
@@ -54,7 +54,7 @@ export function Navbar() {
           <ThemeToggle />
           <button
             type="button"
-            className="inline-flex size-11 items-center justify-center rounded-full border border-line text-ink lg:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-full border border-line text-ink xl:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((value) => !value)}
@@ -66,7 +66,7 @@ export function Navbar() {
       </div>
 
       {open ? (
-        <nav id="mobile-nav" aria-label="Mobile" className="border-t border-line lg:hidden">
+        <nav id="mobile-nav" aria-label="Mobile" className="border-t border-line xl:hidden">
           <ul className="mx-auto flex w-full max-w-6xl flex-col px-3 py-3 sm:px-6">
             {navigation.map((item) => (
               <li key={item.id}>

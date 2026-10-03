@@ -44,12 +44,18 @@ export function Contact() {
     <Section
       id="contact"
       titleId="contact-title"
-      index="08"
+      index="09"
       title="Contact"
       intro={profile.contactIntro}
     >
       <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
         <div className="space-y-5">
+          <div>
+            <p className="font-mono text-[0.72rem] tracking-[0.16em] text-brass uppercase">Phone</p>
+            <a className="mt-1 inline-block text-lg text-ink hover:text-brass" href={`tel:${profile.phone.replace(/[^\d+]/g, '')}`}>
+              {profile.phone}
+            </a>
+          </div>
           <div>
             <p className="font-mono text-[0.72rem] tracking-[0.16em] text-brass uppercase">Email</p>
             <a className="mt-1 inline-block text-lg text-ink hover:text-brass" href={`mailto:${profile.email}`}>

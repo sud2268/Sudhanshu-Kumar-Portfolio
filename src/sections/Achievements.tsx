@@ -17,7 +17,7 @@ export function Achievements() {
     <Section
       id="achievements"
       titleId="achievements-title"
-      index="06"
+      index="07"
       title="Achievements"
       intro={profile.achievementsIntro}
     >

@@ -1,178 +1,77 @@
-# Personal portfolio
+# Portfolio
 
-A local, single-page portfolio for Sudhanshu. It presents a professional introduction, experience, skills, projects, certifications, achievements, a resume download, and contact details.
+Personal portfolio website for Sudhanshu Kumar, a Senior Cloud Engineer. It presents experience, skills, projects, education, certifications, achievements, a resume download, and contact details.
 
-All personal content lives in one file, `src/data/profile.ts`. The page you see on first run is **sample content**. Names in square brackets, and links containing `your-username` or `example.com`, are placeholders.
+Live site: [https://sud2268.github.io/Sudhanshu-Kumar-Portfolio/](https://sud2268.github.io/Sudhanshu-Kumar-Portfolio/)
+
+Repository: [https://github.com/sud2268/Sudhanshu-Kumar-Portfolio](https://github.com/sud2268/Sudhanshu-Kumar-Portfolio)
+
+## Purpose
+
+The site is a single-page professional profile. Visitors can read the background, open the resume, and use the contact links. Content is edited in one data file so the layout does not have to change for routine updates.
 
 ## Technology stack
 
 - React 19
 - TypeScript
-- Vite
+- Vite 8
 - Tailwind CSS 4
 - Lucide React for interface icons
-- System fonts, so the site does not depend on a font CDN
+- Oxlint for linting
 
-## Prerequisites
+System fonts are used. There is no font CDN. There is no client-side router.
 
-- Node.js 20 or newer
-- npm
+## Main features
 
-## Local setup
+- Sticky navigation with a mobile menu, and smooth scrolling to each section
+- Light and dark theme, stored in the browser
+- Profile, experience, skills, projects, education, certifications, and achievements driven by `src/data/profile.ts`
+- Resume download from `public/resume/resume.pdf`
+- Contact form that stays on the page until an optional email endpoint is configured
+
+## Local development
 
 From this folder:
 
 ```bash
 npm install
-```
-
-## Development
-
-```bash
 npm run dev
 ```
 
-Vite prints a local URL, usually `http://localhost:5173`. The page reloads as you edit files.
-
-## Production build
+Vite prints a local address, usually `http://localhost:5173`. Open that address in a browser.
 
 ```bash
 npm run build
-```
-
-This typechecks the project and writes the static site to `dist/`. Do not commit `dist/`.
-
-## Preview the production build
-
-```bash
 npm run preview
 ```
 
-## Update profile information
+`npm run build` typechecks the project and writes the static site to `dist/`. `npm run preview` serves that folder locally, usually at `http://localhost:4173`.
 
-Edit `src/data/profile.ts`.
+Day-to-day editing is described in [docs/USER_GUIDE.md](docs/USER_GUIDE.md). Commands, linting, and what is not set up yet are in [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md).
 
-You can change:
+## Documentation
 
-- Name, title, summary, and location
-- About paragraphs and the highlight panel
-- Email, LinkedIn, and GitHub
-- Skills, experience, projects, certifications, and achievements
-- The portrait path and its alt text
-- The resume path
+- [User guide](docs/USER_GUIDE.md) — update the profile, resume, and image
+- [GitHub setup](docs/GITHUB_SETUP.md) — remote, identity, and push
+- [Deployment](docs/DEPLOYMENT.md) — GitHub Pages and other hosts
+- [Development](docs/DEVELOPMENT.md) — install, scripts, and tooling
+- [AI agent guide](docs/AI_AGENT_GUIDE.md) — rules for future coding agents
+- [Project structure](docs/PROJECT_STRUCTURE.md) — where files live
+- [Security](docs/SECURITY.md) — secrets, environment variables, and Git
 
-When the copy is yours, set `usingSampleContent` to `false`. That removes the sample banner.
-
-Do not put passwords, API keys, or tokens in this file or anywhere else in the repository.
-
-## Add a project
-
-In `profile.projects`, copy an existing object and replace the fields:
-
-- `name`, `description`, and `problem`
-- `technologies` and `responsibilities`
-- `github` with your repository URL
-- `demo` with a live URL, or delete `demo` if there is no public site
-
-## Add a certification
-
-In `profile.certifications`, add an object with:
-
-- `name`
-- `issuer`
-- `year`
-- `credentialId` and `credentialUrl` when you have them
-
-Delete any example you have not earned.
-
-## Add your resume
-
-1. Export your resume as a PDF.
-2. Save it as `public/resume/resume.pdf`, replacing the placeholder file.
-3. The hero and resume sections already link to `/resume/resume.pdf`.
-
-The download still works if you change the file later, as long as the path in `profile.resumePath` matches the file.
-
-## Portrait
-
-Replace `public/images/profile.svg` with your photo, or point `profile.image.src` at a new file under `public/images/` and update `profile.image.alt`.
-
-## Contact form
-
-The form validates name, email, and message in the browser. It does not send email until you connect it.
-
-1. Copy `.env.example` to `.env`. `.env` is gitignored.
-2. Set `VITE_CONTACT_ENDPOINT` to a URL that accepts `POST` JSON:
-
-```json
-{ "name": "...", "email": "...", "message": "..." }
-```
-
-3. Restart the dev server.
-
-`src/lib/contact.ts` is the only place that performs that request. A hidden company field is ignored so simple bots are not delivered. Until the endpoint is set, submitting the form tells the visitor that nothing was sent.
-
-## Theme
-
-The header has a light/dark control. The choice is stored in `localStorage` under `theme`. The first visit follows the operating system preference. Motion is turned off when the visitor has requested reduced motion.
-
-## Deploy
-
-`npm run build` creates `dist/`. Upload that folder to any static host (GitHub Pages, Netlify, Cloudflare Pages, or similar).
-
-For a GitHub Pages **project** site, set the Vite base path to the repository name:
-
-```ts
-export default defineConfig({
-  base: '/your-repository-name/',
-  plugins: [react(), tailwindcss()],
-})
-```
-
-A user or organization site served from `/` can keep the default base.
-
-After you have a public URL, you can add `og:url` and an `og:image` in `index.html`.
-
-## Push this repository to GitHub
-
-Create an empty repository on GitHub, then from this folder:
+## Git workflow
 
 ```bash
-git remote add origin https://github.com/your-username/your-repository-name.git
-git branch -M main
-git push -u origin main
+git status
+git add .
+git commit -m "Describe the change"
+git push
 ```
 
-The remote URL above is a placeholder. Use the URL GitHub shows for your repository.
+Read `git status` before `git add .`. Do not stage `.env` or credential files.
 
-## Project layout
+Check `git status` and `git diff --cached` before every commit. Do not commit `.env`, keys, or cloud credentials. See [docs/SECURITY.md](docs/SECURITY.md).
 
-```text
-portfolio/
-├── public/
-│   ├── images/          Portrait and other public images
-│   └── resume/          Resume PDF
-├── src/
-│   ├── components/      Shared UI
-│   ├── sections/        Page sections
-│   ├── data/            Profile content and navigation
-│   ├── assets/          Files imported by components, if you add any
-│   ├── lib/             Theme and contact helpers
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── index.css
-├── .gitignore
-├── package.json
-├── tsconfig.json
-└── vite.config.ts
-```
+## Other hosting options
 
-## Scripts
-
-| Command | Purpose |
-| --- | --- |
-| `npm install` | Install dependencies |
-| `npm run dev` | Start the local dev server |
-| `npm run build` | Typecheck and build `dist/` |
-| `npm run preview` | Serve the production build locally |
-| `npm run lint` | Run oxlint |
+GitHub Pages is live. A production build is still a static `dist/` folder if you later want Vercel, Netlify, or Amazon S3 with CloudFront. Details are in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).

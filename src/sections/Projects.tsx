@@ -47,6 +47,11 @@ export function Projects() {
               </ul>
 
               <h4 className="mt-6 font-mono text-[0.72rem] tracking-[0.16em] text-brass uppercase">
+                Outcome
+              </h4>
+              <p className="mt-2 text-sm leading-relaxed text-ink sm:text-base">{project.outcome}</p>
+
+              <h4 className="mt-6 font-mono text-[0.72rem] tracking-[0.16em] text-brass uppercase">
                 Technologies
               </h4>
               <ul className="mt-3 flex flex-wrap gap-2">
@@ -60,6 +65,7 @@ export function Projects() {
                 ))}
               </ul>
 
+              {project.github || project.demo ? (
               <div className="mt-6 flex flex-wrap gap-4 border-t border-line pt-5 text-sm font-semibold">
                 {project.github ? (
                   <a
@@ -84,6 +90,7 @@ export function Projects() {
                   </a>
                 ) : null}
               </div>
+              ) : null}
             </article>
           </li>
         ))}

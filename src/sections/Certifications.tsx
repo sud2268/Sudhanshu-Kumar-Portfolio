@@ -7,7 +7,7 @@ export function Certifications() {
     <Section
       id="certifications"
       titleId="certifications-title"
-      index="05"
+      index="06"
       title="Certifications"
       intro={profile.certificationsIntro}
     >
@@ -22,8 +22,12 @@ export function Certifications() {
                 <h3 className="text-lg leading-snug font-semibold text-ink">{certification.name}</h3>
                 <p className="mt-1 text-sm text-muted">
                   {certification.issuer}
-                  <span aria-hidden="true"> · </span>
-                  {certification.year}
+                  {certification.year ? (
+                    <>
+                      <span aria-hidden="true"> · </span>
+                      {certification.year}
+                    </>
+                  ) : null}
                 </p>
                 {certification.credentialId ? (
                   <p className="mt-3 font-mono text-xs text-muted">ID {certification.credentialId}</p>

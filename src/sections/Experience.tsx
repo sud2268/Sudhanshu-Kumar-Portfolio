@@ -30,6 +30,7 @@ export function Experience() {
                 <span className="sr-only">, </span>
                 {role.location}
               </p>
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ink sm:text-base">{role.scope}</p>
 
               <h4 className="mt-6 font-mono text-[0.72rem] tracking-[0.16em] text-brass uppercase">
                 Responsibilities

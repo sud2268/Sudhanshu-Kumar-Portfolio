@@ -8,6 +8,7 @@ export type SkillIconName =
   | 'code'
   | 'database'
   | 'commit'
+  | 'shield'
 
 export type AchievementIconName =
   | 'automation'
@@ -22,6 +23,12 @@ export interface SkillCategory {
   title: string
   icon: SkillIconName
   skills: string[]
+  familiar?: string[]
+}
+
+export interface ImpactStat {
+  value: string
+  label: string
 }
 
 export interface ExperienceRole {
@@ -29,6 +36,7 @@ export interface ExperienceRole {
   title: string
   company: string
   location: string
+  scope: string
   start: string
   end: string
   responsibilities: string[]
@@ -41,6 +49,7 @@ export interface Project {
   name: string
   description: string
   problem: string
+  outcome: string
   technologies: string[]
   responsibilities: string[]
   github?: string
@@ -51,7 +60,7 @@ export interface Certification {
   id: string
   name: string
   issuer: string
-  year: string
+  year?: string
   credentialId?: string
   credentialUrl?: string
 }
@@ -63,6 +72,15 @@ export interface Achievement {
   icon: AchievementIconName
 }
 
+export interface EducationItem {
+  id: string
+  credential: string
+  school: string
+  location: string
+  date: string
+  detail: string
+}
+
 export interface ProfileHighlight {
   label: string
   value: string
@@ -72,9 +90,11 @@ export interface Profile {
   usingSampleContent: boolean
   name: string
   title: string
+  specialties: string
   summary: string
   location: string
   email: string
+  phone: string
   linkedin: string
   github: string
   resumePath: string
@@ -83,11 +103,13 @@ export interface Profile {
     alt: string
   }
   focusAreas: string[]
+  impacts: ImpactStat[]
   about: string[]
   highlights: ProfileHighlight[]
   skillsIntro: string
   experienceIntro: string
   projectsIntro: string
+  educationIntro: string
   certificationsIntro: string
   achievementsIntro: string
   resumeIntro: string
@@ -95,6 +117,7 @@ export interface Profile {
   skills: SkillCategory[]
   experience: ExperienceRole[]
   projects: Project[]
+  education: EducationItem[]
   certifications: Certification[]
   achievements: Achievement[]
 }

@@ -1,5 +1,5 @@
 import type { ReactNode, SVGProps } from 'react'
-import { Mail } from 'lucide-react'
+import { Mail, Phone } from 'lucide-react'
 import { profile } from '../data/profile.ts'
 
 function GitHubIcon(props: SVGProps<SVGSVGElement>) {
@@ -46,6 +46,11 @@ export function SocialLinks({ className = '' }: SocialLinksProps) {
       href: `mailto:${profile.email}`,
       label: 'Email',
       icon: <Mail className={iconClass} aria-hidden="true" />,
+    },
+    {
+      href: `tel:${profile.phone.replace(/[^\d+]/g, '')}`,
+      label: 'Phone',
+      icon: <Phone className={iconClass} aria-hidden="true" />,
     },
   ]
 

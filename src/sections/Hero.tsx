@@ -9,7 +9,7 @@ export function Hero() {
 
   return (
     <section id="home" aria-labelledby="home-title" className="reveal scroll-mt-24">
-      <Container className="grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-[minmax(0,1.25fr)_minmax(280px,0.75fr)] lg:py-28">
+      <Container className="grid items-center gap-12 pt-16 pb-10 sm:pt-20 lg:grid-cols-[minmax(0,1.25fr)_minmax(280px,0.75fr)] lg:pt-28">
         <div className="hero-copy">
           <p className="font-mono text-[0.72rem] tracking-[0.22em] text-brass uppercase">
             Cloud · Delivery · Reliability
@@ -21,6 +21,7 @@ export function Hero() {
             {profile.name}
           </h1>
           <p className="mt-4 text-xl text-ink sm:text-2xl">{profile.title}</p>
+          <p className="mt-2 text-sm tracking-wide text-brass sm:text-base">{profile.specialties}</p>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
             {profile.summary}
           </p>
@@ -58,6 +59,16 @@ export function Hero() {
             </ul>
           </div>
         </aside>
+      </Container>
+      <Container className="pb-16 sm:pb-20 lg:pb-28">
+        <dl className="grid grid-cols-2 gap-x-6 gap-y-8 border-t border-line pt-8 sm:grid-cols-4">
+          {profile.impacts.map((impact) => (
+            <div key={impact.label}>
+              <dt className="font-display text-4xl leading-none text-ink">{impact.value}</dt>
+              <dd className="mt-2 text-sm leading-snug text-muted">{impact.label}</dd>
+            </div>
+          ))}
+        </dl>
       </Container>
     </section>
   )

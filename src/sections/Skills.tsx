@@ -6,6 +6,7 @@ import {
   Container,
   Database,
   GitBranch,
+  Shield,
   GitCommitHorizontal,
   Workflow,
 } from 'lucide-react'
@@ -23,6 +24,7 @@ const icons = {
   code: Code,
   database: Database,
   commit: GitCommitHorizontal,
+  shield: Shield,
 } satisfies Record<SkillIconName, typeof Cloud>
 
 export function Skills() {
@@ -55,6 +57,15 @@ export function Skills() {
                     className="rounded-full border border-line bg-chip px-3 py-1 text-sm text-ink"
                   >
                     {skill}
+                  </li>
+                ))}
+                {category.familiar?.map((skill) => (
+                  <li
+                    key={skill}
+                    className="rounded-full border border-dashed border-line px-3 py-1 text-sm text-muted"
+                  >
+                    {skill}
+                    <span className="sr-only">, familiar</span>
                   </li>
                 ))}
               </ul>
